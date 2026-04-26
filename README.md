@@ -1,0 +1,1 @@
+# Konecna-hra-C-
