@@ -463,3 +463,49 @@ void village(Player& p, int villageNumber) {
         }
     }
 }
+
+void wiseTree(Player& p) {
+    cout << "\nPrichazis na malou mitinu, kde stoji osamely moudry strom.\n";
+    cout << "Strom: \"Zdravim, pocestny. Odpovis na mou hadanku?\"\n";
+    cout << "1) Ano\n";
+    cout << "2) Ne\n";
+    cout << "Volba: ";
+
+    int choice = getChoice(1, 2);
+
+    if (choice == 2) {
+        cout << "Strom mlci a ty pokracujes dal.\n";
+        return;
+    }
+
+    cout << "\nStrom: \"Kazdy den na obloze se vznasi, radost nam prinasi a bubaky strasi. Co to je?\"\n";
+    cout << "1) Hrnec\n";
+    cout << "2) Slunce\n";
+    cout << "3) Kamen\n";
+    cout << "Volba: ";
+
+    int answer = getChoice(1, 3);
+
+    if (answer == 2) {
+        cout << "Strom: \"Spravne! Navysuji ti max zivoty o 2.\"\n";
+        p.maxHp += 2;
+        p.hp += 2;
+    } else {
+        cout << "Strom: \"Spatne! Ztracis 2 zivoty.\"\n";
+        p.hp -= 2;
+        if (p.hp < 1) p.hp = 1;
+    }
+}
+
+Enemy makeEnemy(string name, int hp, int attack, int xp, int gold, bool mb = false, bool hb = false) {
+    Enemy e;
+    e.name = name;
+    e.hp = hp;
+    e.maxHp = hp;
+    e.attack = attack;
+    e.xpReward = xp;
+    e.goldReward = gold;
+    e.miniBoss = mb;
+    e.mainBoss = hb;
+    return e;
+}
