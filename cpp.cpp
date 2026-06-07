@@ -509,3 +509,42 @@ Enemy makeEnemy(string name, int hp, int attack, int xp, int gold, bool mb = fal
     e.mainBoss = hb;
     return e;
 }
+int main() {
+    srand(time(0));
+
+    cout << "=====================================\n";
+    cout << " TEXTOVE RPG: CESTA PROTI STATICORU\n";
+    cout << "=====================================\n";
+
+    Player player = chooseClass();
+
+    village(player, 1);
+
+    if (!battle(player, {makeEnemy("Sliz", 12, 2, 8, 5)})) return 0;
+    if (!battle(player, {makeEnemy("Vlk", 14, 3, 9, 6)})) return 0;
+    if (!battle(player, {makeEnemy("Goblin", 13, 3, 10, 7), makeEnemy("Netopyr", 10, 2, 8, 5)})) return 0;
+
+    if (!battle(player, {makeEnemy("Kamenny strazce", 32, 5, 25, 20, true)})) return 0;
+
+    village(player, 2);
+
+    if (!battle(player, {makeEnemy("Bandita", 18, 4, 12, 8)})) return 0;
+    if (!battle(player, {makeEnemy("Kostlivec", 16, 4, 12, 7), makeEnemy("Temny pavouk", 15, 3, 11, 7)})) return 0;
+    if (!battle(player, {makeEnemy("Ork", 20, 5, 15, 9), makeEnemy("Harpyje", 16, 4, 12, 8)})) return 0;
+
+    wiseTree(player);
+
+    if (!battle(player, {makeEnemy("Ohnivy rytir", 42, 7, 35, 30, true)})) return 0;
+
+    village(player, 3);
+
+    if (!battle(player, {makeEnemy("Ledovy had", 18, 5, 14, 8), makeEnemy("Jedovy skorpion", 17, 5, 14, 8)})) return 0;
+    if (!battle(player, {makeEnemy("Temny vlk", 20, 5, 16, 10), makeEnemy("Stinovy netopyr", 18, 4, 14, 8)})) return 0;
+    if (!battle(player, {makeEnemy("Demon", 22, 6, 18, 10), makeEnemy("Kamenozrout", 24, 5, 18, 10), makeEnemy("Krvavy goblin", 20, 5, 16, 9)})) return 0;
+
+    village(player, 4);
+
+    if (!battle(player, {makeEnemy("Staticore", 85, 9, 0, 0, false, true)})) return 0;
+
+    return 0;
+}
